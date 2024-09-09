@@ -1,0 +1,73 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/Users/tim/Documents/sharedFolderAcrossAllDevices/simulation/questa
+T_opt
+!s110 1725906775
+V2A27h[7eHfzZ>6WQAEBA63
+04 8 4 work tbird_tb fast 0
+=1-001c42d6959b-66df3f56-32e-1164
+R0
+!s12b OEM100
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work +acc
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+vtbird
+2C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v
+!s110 1725906773
+!i10b 1
+!s100 IOEQ4_e24Xd<2l3[MoZ__1
+Ib3kD`6@S]JW9j8F9:QF6V1
+R1
+w1725904725
+8C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v
+FC:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v
+!i122 0
+L0 15 163
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 OL;L;2023.3;77
+r1
+!s85 0
+31
+Z5 !s108 1725906773.000000
+!s107 C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/tim/Documents/sharedFolderAcrossAllDevices|C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v|
+!i113 0
+Z6 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 !s92 -vlog01compat -work work +incdir+C:/Users/tim/Documents/sharedFolderAcrossAllDevices -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vtbird_tb
+2C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tb_tbird.v
+!s110 1725906774
+!i10b 1
+!s100 fldkfnmVQinOWXgZ]h2__3
+Ie61J2;Im6OPSW`M6Za[fJ1
+R1
+w1725906762
+8C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tb_tbird.v
+FC:/Users/tim/Documents/sharedFolderAcrossAllDevices/tb_tbird.v
+!i122 1
+L0 3 70
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tb_tbird.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/tim/Documents/sharedFolderAcrossAllDevices|C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tb_tbird.v|
+!i113 0
+R6
+R7
+R2

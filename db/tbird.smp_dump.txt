@@ -1,0 +1,7 @@
+
+State Machine - |tbird|current_state
+Name current_state.hazard current_state.leftTurn current_state.rightTurn current_state.resting 
+current_state.resting 0 0 0 0 
+current_state.rightTurn 0 0 1 1 
+current_state.leftTurn 0 1 0 1 
+current_state.hazard 1 0 0 1 
