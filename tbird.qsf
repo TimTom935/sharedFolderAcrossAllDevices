@@ -68,11 +68,7 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH tbird_tb -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_NAME tbird_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tbird_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tbird_tb -section_id tbird_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE tb_tbird.v -section_id tbird_tb
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH tb_tbird -section_id eda_simulation
 set_location_assignment PIN_AA14 -to right_button
 set_location_assignment PIN_AA15 -to hazard_button
 set_location_assignment PIN_W15 -to left_button
@@ -113,4 +109,9 @@ set_location_assignment PIN_AD29 -to right_hex22
 set_location_assignment PIN_AC28 -to right_hex23
 set_location_assignment PIN_AC29 -to right_hex25
 set_location_assignment PIN_AD30 -to right_hex24
+set_global_assignment -name EDA_TEST_BENCH_NAME tb_tbird -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tb_tbird
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb_tbird -section_id tb_tbird
+set_global_assignment -name EDA_TEST_BENCH_FILE tb_tbird.v -section_id tb_tbird
+set_location_assignment PIN_Y16 -to reset
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

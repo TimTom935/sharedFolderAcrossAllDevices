@@ -1,72 +1,99 @@
-`timescale 1ns/1ps
+`timescale 1ns / 1ps
 
-module tbird_tb;
+module tb_tbird;
 
-// Testbench Signals
+// Inputs
 reg clock;
 reg right_button;
 reg left_button;
 reg hazard_button;
+reg reset;
 
+// Outputs
 wire right_led1;
 wire right_led2;
 wire right_led3;
 wire left_led1;
 wire left_led2;
 wire left_led3;
-wire all_leds_on;
 
-// Instantiate the DUT (Device Under Test)
+// Instantiate the Unit Under Test (UUT)
 tbird uut (
-    .clock(clock),
-    .right_button(right_button),
-    .left_button(left_button),
+    .clock(clock), 
+    .right_button(right_button), 
+    .left_button(left_button), 
     .hazard_button(hazard_button),
-    .right_led1(right_led1),
-    .right_led2(right_led2),
+    .reset(reset),
+    .right_led1(right_led1), 
+    .right_led2(right_led2), 
     .right_led3(right_led3),
-    .left_led1(left_led1),
-    .left_led2(left_led2),
-    .left_led3(left_led3),
-    .all_leds_on(all_leds_on)
+    .left_led1(left_led1), 
+    .left_led2(left_led2), 
+    .left_led3(left_led3)
 );
 
-// Clock Generation (50MHz clock period = 20ns)
+// Clock generation (50 MHz)
 always begin
-    #10 clock = ~clock; // Toggle clock every 10ns
+    #10 clock = ~clock; // 50MHz clock -> T = 20ns, so toggle every 10ns
 end
 
-// Test Procedure
+// Simulation logic
 initial begin
     // Initialize Inputs
     clock = 0;
-    right_button = 1;
+    right_button = 1; // Buttons are active-low, so 1 means not pressed
     left_button = 1;
     hazard_button = 1;
+    reset = 1; // Active-low reset, so 1 means not resetting
 
-    // Test right turn signal
-    $display("Testing right turn signal");
-    right_button = 0;  // Press right turn button
-    #200000;  // Wait for the sequence to complete
-    right_button = 1;  // Release right turn button
-    #200000;
-
-    // Test left turn signal
-    $display("Testing left turn signal");
-    left_button = 0;  // Press left turn button
-    #200000;  // Wait for the sequence to complete
-    left_button = 1;  // Release left turn button
-    #200000;
-
+    // Hold in resting state for some time
+    #100;
+    
+    // Test right turn sequence
+    right_button = 0; // Press right button (active-low)
+    #1000;            // Wait for some time
+    right_button = 1; // Release button
+    #1000;
+    
+    // Test left turn sequence
+    left_button = 0;  // Press left button (active-low)
+    #1000;            // Wait for some time
+    left_button = 1;  // Release button
+    #1000;
+    
     // Test hazard signal
-    $display("Testing hazard signal");
-    hazard_button = 0;  // Press hazard button
-    #200000;  // Let the hazard blink for some time
-    hazard_button = 1;  // Release hazard button
-    #200000;
-
+    hazard_button = 0; // Press hazard button (active-low)
+    #1000;             // Wait for some time
+    hazard_button = 1; // Release hazard button
+    #1000;
+    
+    // Test reset functionality
+    // Apply reset during right turn signal
+    right_button = 0;  // Start right turn signal
+    #500;
+    reset = 0;         // Apply reset
+    #500;
+    reset = 1;         // Release reset
+    #1000;
+    
+    // Apply reset during left turn signal
+    left_button = 0;   // Start left turn signal
+    #500;
+    reset = 0;         // Apply reset
+    #500;
+    reset = 1;         // Release reset
+    #1000;
+    
+    // Apply reset during hazard signal
+    hazard_button = 0; // Start hazard signal
+    #500;
+    reset = 0;         // Apply reset
+    #500;
+    reset = 1;         // Release reset
+    #1000;
+    
     // End simulation
-    $display("Testbench complete");
+    $finish;
 end
 
 endmodule

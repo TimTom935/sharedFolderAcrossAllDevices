@@ -17,6 +17,7 @@ module tbird(
     input right_button,        // Right turn signal button (active-low)
     input left_button,         // Left turn signal button (active-low)
     input hazard_button,       // Hazard signal button (active-low)
+	 input reset,					 // Reset everything to default
 	 
     output right_led1,     // LED for right signal (LED 1)
 	 output right_hex20,
@@ -64,10 +65,7 @@ module tbird(
 	 output left_hex52,
 	 output left_hex53,
 	 output left_hex54,
-	 output left_hex55,
-	 
-	 
-    output reg all_leds_on     // All LEDs on for hazard signal
+	 output left_hex55
 );
 
 
@@ -122,21 +120,17 @@ parameter hazard = 6'b100101;
 reg [5:0] current_state, next_state;  // Holds current and next FSM state
 reg [25:0] counter;  // Counter for timing delay (assuming we divide the 50MHz clock)
 reg enable = 0;
-reg sequence_completed;  // Signal indicating when a turn sequence is complete
-reg slow_enable;  // Slower clock enable for timing control
-parameter max_count = 4200000;  // Adjust this based on your desired blinking frequency (for 0.5Hz)
+parameter max_count = 25000000;  // Adjust this based on your desired blinking frequency (for 0.5Hz)
 
 // Initial setup for FSM
 initial begin
     current_state = resting;  // Start in resting state
     next_state = resting;
-    all_leds_on = 0;
-    sequence_completed = 0;
 end
 
 // State Register Logic
 // This block updates the current state on every clock cycle
-always @ (posedge enable) begin
+always @ (posedge clock) begin
 		current_state = next_state;  // Update the state to the next state
 end
 
@@ -156,6 +150,9 @@ always @ (*) begin
         end
 ///////////////////////////////*********************************HEX 2 LEFT TURN ***************START
         rightTurn10: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
             end else begin
@@ -164,6 +161,9 @@ always @ (*) begin
 			end
 			
 			rightTurn11: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
             end else begin
@@ -172,6 +172,9 @@ always @ (*) begin
 			end
 			
 			rightTurn12: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
             end else begin
@@ -180,6 +183,9 @@ always @ (*) begin
 			end
 			
 			rightTurn13: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
             end else begin
@@ -188,6 +194,9 @@ always @ (*) begin
 			end
 			
 			rightTurn14: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
             end else begin
@@ -196,6 +205,9 @@ always @ (*) begin
 			end
 			
 			rightTurn15: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
             end else begin
@@ -205,6 +217,9 @@ always @ (*) begin
 ///////////////////////////////*********************************HEX 2 LEFT TURN ***************END
 ///////////////////////////////*********************************HEX 1 LEFT TURN ***************START
 			rightTurn20: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -213,6 +228,9 @@ always @ (*) begin
 			end
 			
 			rightTurn21: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -221,6 +239,9 @@ always @ (*) begin
 			end
 			
 			rightTurn22: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -229,6 +250,9 @@ always @ (*) begin
 			end
 			
 			rightTurn23: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -237,6 +261,9 @@ always @ (*) begin
 			end
 			
 			rightTurn24: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -245,6 +272,9 @@ always @ (*) begin
 			end
 			
 			rightTurn25: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -254,6 +284,9 @@ always @ (*) begin
 ///////////////////////////////*********************************HEX 1 LEFT TURN ***************END
 ///////////////////////////////*********************************HEX 0 LEFT TURN ***************START
 			rightTurn30: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -262,6 +295,9 @@ always @ (*) begin
 			end
 			
 			rightTurn31: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -270,6 +306,9 @@ always @ (*) begin
 			end
 			
 			rightTurn32: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -278,6 +317,9 @@ always @ (*) begin
 			end
 			
 			rightTurn33: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -286,6 +328,9 @@ always @ (*) begin
 			end
 			
 			rightTurn34: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -294,6 +339,9 @@ always @ (*) begin
 			end
 			
 			rightTurn35: begin
+				if (!reset) begin
+					next_state = resting;
+				end
 				if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides right turn
 				end else begin
@@ -304,6 +352,9 @@ always @ (*) begin
 ///////////////////////////////*********************************HEX 0 LEFT TURN ***************END
 ///////////////////////////////*********************************HEX 3 LEFT TURN ***************START
         leftTurn10: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -312,6 +363,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn11: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -320,6 +374,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn12: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -328,6 +385,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn13: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -336,6 +396,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn14: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -344,6 +407,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn15: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -353,6 +419,9 @@ always @ (*) begin
 ///////////////////////////////*********************************HEX 3 LEFT TURN ***************END
 ///////////////////////////////*********************************HEX 4 LEFT TURN ***************START
 		  leftTurn20: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -361,6 +430,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn21: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -369,6 +441,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn22: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -377,6 +452,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn23: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -385,6 +463,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn24: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -393,6 +474,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn25: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -402,6 +486,9 @@ always @ (*) begin
 ///////////////////////////////*********************************HEX 4 LEFT TURN ***************END
 ///////////////////////////////*********************************HEX 5 LEFT TURN ***************START
 		  leftTurn30: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -410,6 +497,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn31: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -418,6 +508,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn32: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -426,6 +519,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn33: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -434,6 +530,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn34: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -442,6 +541,9 @@ always @ (*) begin
         end
 		  
 		  leftTurn35: begin
+				if (!reset) begin
+					next_state = resting;
+				end
             if (!hazard_button) begin
                 next_state = hazard;  // Hazard overrides left turn
             end else begin
@@ -450,7 +552,11 @@ always @ (*) begin
         end
 ///////////////////////////////*********************************HEX 5 LEFT TURN ***************END
         hazard: begin
-            next_state = resting;  // Return to resting after hazard is released
+				if (!reset) begin
+					next_state = resting;
+				end else begin
+					next_state = resting;  // Return to resting after hazard is released
+				end
         end
 
         default: next_state = resting;  // Default to resting state
@@ -588,11 +694,7 @@ assign left_hex54 =!(																																												(current_state 
 							(current_state == hazard));
 assign left_hex55 =!(																																																							(current_state == leftTurn35) || 
 							(current_state == hazard));
-
-
-
-
-
+							
 // Clock Divider Logic (for timing control)
 // Divides the 50MHz clock to slower values for visible LED blinking
 always @ (posedge clock) begin
