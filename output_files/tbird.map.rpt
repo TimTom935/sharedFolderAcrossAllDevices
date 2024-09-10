@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tbird
-Mon Sep  9 13:20:19 2024
+Mon Sep  9 20:44:24 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -15,12 +15,11 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |tbird|current_state
   9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Parameter Settings for User Entity Instance: Top-level Entity: |tbird
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |tbird
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -47,14 +46,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Sep  9 13:20:19 2024          ;
+; Analysis & Synthesis Status     ; Successful - Mon Sep  9 20:44:24 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; tbird                                          ;
 ; Top-level Entity Name           ; tbird                                          ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 0                                              ;
-; Total pins                      ; 11                                             ;
+; Total registers                 ; 65                                             ;
+; Total pins                      ; 47                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -72,7 +71,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
 ; Top-level entity name                                                           ; tbird              ; tbird              ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
@@ -159,51 +158,52 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                  ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                    ; Library ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------------+---------+
-; tbird_fsm.v                      ; yes             ; User Verilog HDL File  ; C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v ;         ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                             ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                               ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
+; tbird_fsm.v                      ; yes             ; User Verilog HDL File  ; /home/tim/Desktop/sharedFolderAcrossAllDevices/tbird_fsm.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                     ;
-+---------------------------------------------+-------------------+
-; Resource                                    ; Usage             ;
-+---------------------------------------------+-------------------+
-; Estimate of Logic utilization (ALMs needed) ; 0                 ;
-;                                             ;                   ;
-; Combinational ALUT usage for logic          ; 0                 ;
-;     -- 7 input functions                    ; 0                 ;
-;     -- 6 input functions                    ; 0                 ;
-;     -- 5 input functions                    ; 0                 ;
-;     -- 4 input functions                    ; 0                 ;
-;     -- <=3 input functions                  ; 0                 ;
-;                                             ;                   ;
-; Dedicated logic registers                   ; 0                 ;
-;                                             ;                   ;
-; I/O pins                                    ; 11                ;
-;                                             ;                   ;
-; Total DSP Blocks                            ; 0                 ;
-;                                             ;                   ;
-; Maximum fan-out node                        ; right_led1~output ;
-; Maximum fan-out                             ; 1                 ;
-; Total fan-out                               ; 11                ;
-; Average fan-out                             ; 0.50              ;
-+---------------------------------------------+-------------------+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+; Estimate of Logic utilization (ALMs needed) ; 67     ;
+;                                             ;        ;
+; Combinational ALUT usage for logic          ; 116    ;
+;     -- 7 input functions                    ; 0      ;
+;     -- 6 input functions                    ; 17     ;
+;     -- 5 input functions                    ; 9      ;
+;     -- 4 input functions                    ; 9      ;
+;     -- <=3 input functions                  ; 81     ;
+;                                             ;        ;
+; Dedicated logic registers                   ; 65     ;
+;                                             ;        ;
+; I/O pins                                    ; 47     ;
+;                                             ;        ;
+; Total DSP Blocks                            ; 0      ;
+;                                             ;        ;
+; Maximum fan-out node                        ; enable ;
+; Maximum fan-out                             ; 39     ;
+; Total fan-out                               ; 599    ;
+; Average fan-out                             ; 2.18   ;
++---------------------------------------------+--------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -211,51 +211,71 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |tbird                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 11   ; 0            ; |tbird              ; tbird       ; work         ;
+; |tbird                     ; 116 (116)           ; 65 (65)                   ; 0                 ; 0          ; 47   ; 0            ; |tbird              ; tbird       ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |tbird|current_state                                                                                      ;
-+-------------------------+----------------------+------------------------+-------------------------+-----------------------+
-; Name                    ; current_state.hazard ; current_state.leftTurn ; current_state.rightTurn ; current_state.resting ;
-+-------------------------+----------------------+------------------------+-------------------------+-----------------------+
-; current_state.resting   ; 0                    ; 0                      ; 0                       ; 0                     ;
-; current_state.rightTurn ; 0                    ; 0                      ; 1                       ; 1                     ;
-; current_state.leftTurn  ; 0                    ; 1                      ; 0                       ; 1                     ;
-; current_state.hazard    ; 1                    ; 0                      ; 0                       ; 1                     ;
-+-------------------------+----------------------+------------------------+-------------------------+-----------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |tbird|current_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ;
++---------------------------+----------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+-----------------------+
+; Name                      ; current_state.hazard ; current_state.leftTurn35 ; current_state.leftTurn34 ; current_state.leftTurn33 ; current_state.leftTurn32 ; current_state.leftTurn31 ; current_state.leftTurn30 ; current_state.leftTurn25 ; current_state.leftTurn24 ; current_state.leftTurn23 ; current_state.leftTurn22 ; current_state.leftTurn21 ; current_state.leftTurn20 ; current_state.leftTurn15 ; current_state.leftTurn14 ; current_state.leftTurn13 ; current_state.leftTurn12 ; current_state.leftTurn11 ; current_state.leftTurn10 ; current_state.rightTurn35 ; current_state.rightTurn34 ; current_state.rightTurn33 ; current_state.rightTurn32 ; current_state.rightTurn31 ; current_state.rightTurn30 ; current_state.rightTurn25 ; current_state.rightTurn24 ; current_state.rightTurn23 ; current_state.rightTurn22 ; current_state.rightTurn21 ; current_state.rightTurn20 ; current_state.rightTurn15 ; current_state.rightTurn14 ; current_state.rightTurn13 ; current_state.rightTurn12 ; current_state.rightTurn11 ; current_state.rightTurn10 ; current_state.resting ;
++---------------------------+----------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+-----------------------+
+; current_state.resting     ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                     ;
+; current_state.rightTurn10 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 1                     ;
+; current_state.rightTurn11 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 1                     ;
+; current_state.rightTurn12 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn13 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn14 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn15 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn20 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn21 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn22 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn23 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn24 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn25 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn30 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn31 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn32 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn33 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn34 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.rightTurn35 ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn10  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn11  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn12  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn13  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn14  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn15  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn20  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn21  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn22  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn23  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn24  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn25  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn30  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn31  ; 0                    ; 0                        ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn32  ; 0                    ; 0                        ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn33  ; 0                    ; 0                        ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn34  ; 0                    ; 0                        ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.leftTurn35  ; 0                    ; 1                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
+; current_state.hazard      ; 1                    ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                        ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                     ;
++---------------------------+----------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+--------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+-----------------------+
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; slow_enable                           ; Stuck at GND due to stuck port data_in ;
-; all_leds_on~reg0                      ; Stuck at GND due to stuck port data_in ;
-; current_state~2                       ; Lost fanout                            ;
-; current_state~3                       ; Lost fanout                            ;
-; current_state.resting                 ; Lost fanout                            ;
-; current_state.rightTurn               ; Lost fanout                            ;
-; current_state.leftTurn                ; Lost fanout                            ;
-; current_state.hazard                  ; Lost fanout                            ;
-; Total Number of Removed Registers = 8 ;                                        ;
-+---------------------------------------+----------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                  ;
-+-----------------+---------------------------+------------------------------------------------+
-; Register name   ; Reason for Removal        ; Registers Removed due to This Register         ;
-+-----------------+---------------------------+------------------------------------------------+
-; current_state~2 ; Lost Fanouts              ; current_state.resting, current_state.rightTurn ;
-; slow_enable     ; Stuck at GND              ; all_leds_on~reg0                               ;
-;                 ; due to stuck port data_in ;                                                ;
-; current_state~3 ; Lost Fanouts              ; current_state.leftTurn                         ;
-+-----------------+---------------------------+------------------------------------------------+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; current_state~2                       ; Lost fanout        ;
+; current_state~3                       ; Lost fanout        ;
+; current_state~4                       ; Lost fanout        ;
+; current_state~5                       ; Lost fanout        ;
+; current_state~6                       ; Lost fanout        ;
+; current_state~7                       ; Lost fanout        ;
+; Total Number of Removed Registers = 6 ;                    ;
++---------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -263,8 +283,8 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 65    ;
+; Number of registers using Synchronous Clear  ; 26    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -275,19 +295,49 @@ Encoding Type:  One-Hot
 
 +-----------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Top-level Entity: |tbird ;
-+----------------+-----------+------------------------------------------+
-; Parameter Name ; Value     ; Type                                     ;
-+----------------+-----------+------------------------------------------+
-; resting        ; 00        ; Unsigned Binary                          ;
-; rightTurn      ; 01        ; Unsigned Binary                          ;
-; leftTurn       ; 10        ; Unsigned Binary                          ;
-; hazard         ; 11        ; Unsigned Binary                          ;
-; t1             ; 25000000  ; Signed Integer                           ;
-; t2             ; 50000000  ; Signed Integer                           ;
-; t3             ; 75000000  ; Signed Integer                           ;
-; t4             ; 100000000 ; Signed Integer                           ;
-; max_count      ; 25000000  ; Signed Integer                           ;
-+----------------+-----------+------------------------------------------+
++----------------+---------+--------------------------------------------+
+; Parameter Name ; Value   ; Type                                       ;
++----------------+---------+--------------------------------------------+
+; resting        ; 000000  ; Unsigned Binary                            ;
+; rightTurn10    ; 000001  ; Unsigned Binary                            ;
+; rightTurn11    ; 000010  ; Unsigned Binary                            ;
+; rightTurn12    ; 000011  ; Unsigned Binary                            ;
+; rightTurn13    ; 000100  ; Unsigned Binary                            ;
+; rightTurn14    ; 000101  ; Unsigned Binary                            ;
+; rightTurn15    ; 000110  ; Unsigned Binary                            ;
+; rightTurn20    ; 000111  ; Unsigned Binary                            ;
+; rightTurn21    ; 001000  ; Unsigned Binary                            ;
+; rightTurn22    ; 001001  ; Unsigned Binary                            ;
+; rightTurn23    ; 001010  ; Unsigned Binary                            ;
+; rightTurn24    ; 001011  ; Unsigned Binary                            ;
+; rightTurn25    ; 001100  ; Unsigned Binary                            ;
+; rightTurn30    ; 001101  ; Unsigned Binary                            ;
+; rightTurn31    ; 001110  ; Unsigned Binary                            ;
+; rightTurn32    ; 001111  ; Unsigned Binary                            ;
+; rightTurn33    ; 010000  ; Unsigned Binary                            ;
+; rightTurn34    ; 010001  ; Unsigned Binary                            ;
+; rightTurn35    ; 010010  ; Unsigned Binary                            ;
+; leftTurn10     ; 010011  ; Unsigned Binary                            ;
+; leftTurn11     ; 010100  ; Unsigned Binary                            ;
+; leftTurn12     ; 010101  ; Unsigned Binary                            ;
+; leftTurn13     ; 010110  ; Unsigned Binary                            ;
+; leftTurn14     ; 010111  ; Unsigned Binary                            ;
+; leftTurn15     ; 011000  ; Unsigned Binary                            ;
+; leftTurn20     ; 011001  ; Unsigned Binary                            ;
+; leftTurn21     ; 011010  ; Unsigned Binary                            ;
+; leftTurn22     ; 011011  ; Unsigned Binary                            ;
+; leftTurn23     ; 011100  ; Unsigned Binary                            ;
+; leftTurn24     ; 011101  ; Unsigned Binary                            ;
+; leftTurn25     ; 011110  ; Unsigned Binary                            ;
+; leftTurn30     ; 011111  ; Unsigned Binary                            ;
+; leftTurn31     ; 100000  ; Unsigned Binary                            ;
+; leftTurn32     ; 100001  ; Unsigned Binary                            ;
+; leftTurn33     ; 100010  ; Unsigned Binary                            ;
+; leftTurn34     ; 100011  ; Unsigned Binary                            ;
+; leftTurn35     ; 100100  ; Unsigned Binary                            ;
+; hazard         ; 100101  ; Unsigned Binary                            ;
+; max_count      ; 4200000 ; Signed Integer                             ;
++----------------+---------+--------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -296,13 +346,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 1                           ;
-;     normal            ; 1                           ;
+; arriav_ff             ; 65                          ;
+;     SCLR              ; 26                          ;
+;     plain             ; 39                          ;
+; arriav_lcell_comb     ; 151                         ;
+;     arith             ; 26                          ;
+;         1 data inputs ; 26                          ;
+;     normal            ; 125                         ;
 ;         0 data inputs ; 1                           ;
-; boundary_port         ; 11                          ;
+;         1 data inputs ; 34                          ;
+;         2 data inputs ; 45                          ;
+;         3 data inputs ; 10                          ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 9                           ;
+;         6 data inputs ; 17                          ;
+; boundary_port         ; 47                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.73                        ;
 +-----------------------+-----------------------------+
 
 
@@ -321,55 +382,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Sep  9 13:19:59 2024
+    Info: Processing started: Mon Sep  9 20:44:17 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tbird -c tbird
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file tbird_fsm.v
-    Info (12023): Found entity 1: tbird File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 15
+    Info (12023): Found entity 1: tbird File: /home/tim/Desktop/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file tb_tbird.v
-    Info (12023): Found entity 1: tbird_tb File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tb_tbird.v Line: 3
+    Info (12023): Found entity 1: tbird_tb File: /home/tim/Desktop/sharedFolderAcrossAllDevices/tb_tbird.v Line: 3
 Info (12127): Elaborating entity "tbird" for the top level hierarchy
-Warning (10199): Verilog HDL Case Statement warning at tbird_fsm.v(129): case item expression never matches the case expression File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 129
-Warning (10199): Verilog HDL Case Statement warning at tbird_fsm.v(130): case item expression never matches the case expression File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 130
-Warning (10199): Verilog HDL Case Statement warning at tbird_fsm.v(131): case item expression never matches the case expression File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 131
-Warning (10199): Verilog HDL Case Statement warning at tbird_fsm.v(132): case item expression never matches the case expression File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 132
-Warning (10230): Verilog HDL assignment warning at tbird_fsm.v(139): truncated value with size 32 to match size of target (24) File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 139
-Warning (10199): Verilog HDL Case Statement warning at tbird_fsm.v(149): case item expression never matches the case expression File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 149
-Warning (10199): Verilog HDL Case Statement warning at tbird_fsm.v(150): case item expression never matches the case expression File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 150
-Warning (10199): Verilog HDL Case Statement warning at tbird_fsm.v(151): case item expression never matches the case expression File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 151
-Warning (10199): Verilog HDL Case Statement warning at tbird_fsm.v(152): case item expression never matches the case expression File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 152
-Warning (10230): Verilog HDL assignment warning at tbird_fsm.v(159): truncated value with size 32 to match size of target (24) File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 159
-Warning (10230): Verilog HDL assignment warning at tbird_fsm.v(173): truncated value with size 32 to match size of target (24) File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 173
-Warning (10034): Output port "right_led1" at tbird_fsm.v(20) has no driver File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 20
-Warning (10034): Output port "right_led2" at tbird_fsm.v(21) has no driver File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 21
-Warning (10034): Output port "right_led3" at tbird_fsm.v(22) has no driver File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 22
-Warning (10034): Output port "left_led1" at tbird_fsm.v(23) has no driver File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 23
-Warning (10034): Output port "left_led2" at tbird_fsm.v(24) has no driver File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 24
-Warning (10034): Output port "left_led3" at tbird_fsm.v(25) has no driver File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 25
+Warning (10036): Verilog HDL or VHDL warning at tbird_fsm.v(125): object "sequence_completed" assigned a value but never read File: /home/tim/Desktop/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 125
+Warning (10230): Verilog HDL assignment warning at tbird_fsm.v(604): truncated value with size 32 to match size of target (26) File: /home/tim/Desktop/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 604
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "right_led1" is stuck at GND File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 20
-    Warning (13410): Pin "right_led2" is stuck at GND File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 21
-    Warning (13410): Pin "right_led3" is stuck at GND File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 22
-    Warning (13410): Pin "left_led1" is stuck at GND File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 23
-    Warning (13410): Pin "left_led2" is stuck at GND File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 24
-    Warning (13410): Pin "left_led3" is stuck at GND File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 25
-    Warning (13410): Pin "all_leds_on" is stuck at GND File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 27
+    Warning (13410): Pin "all_leds_on" is stuck at GND File: /home/tim/Desktop/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 71
+Info (286030): Timing-Driven Synthesis is running
 Info (17049): 6 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "hazard_button" File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 19
-    Warning (15610): No output dependent on input pin "left_button" File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 18
-    Warning (15610): No output dependent on input pin "right_button" File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 17
-    Warning (15610): No output dependent on input pin "clock" File: C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v Line: 16
-Info (21057): Implemented 11 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 163 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 7 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 31 warnings
-    Info: Peak virtual memory: 13216 megabytes
-    Info: Processing ended: Mon Sep  9 13:20:19 2024
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:48
+    Info (21059): Implemented 43 output pins
+    Info (21061): Implemented 116 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 478 megabytes
+    Info: Processing ended: Mon Sep  9 20:44:24 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:14
 
 

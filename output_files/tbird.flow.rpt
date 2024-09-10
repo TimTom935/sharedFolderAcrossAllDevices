@@ -1,5 +1,5 @@
 Flow report for tbird
-Mon Sep  9 13:21:50 2024
+Mon Sep  9 20:45:07 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,24 +41,24 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Mon Sep  9 13:21:50 2024          ;
+; Flow Status                     ; Successful - Mon Sep  9 20:45:07 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; tbird                                          ;
 ; Top-level Entity Name           ; tbird                                          ;
 ; Family                          ; Cyclone V                                      ;
-; Device                          ; 5CGXFC7C7F23C8                                 ;
+; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 1 / 56,480 ( < 1 % )                           ;
-; Total registers                 ; 0                                              ;
-; Total pins                      ; 11 / 268 ( 4 % )                               ;
+; Logic utilization (in ALMs)     ; 67 / 32,070 ( < 1 % )                          ;
+; Total registers                 ; 75                                             ;
+; Total pins                      ; 47 / 457 ( 10 % )                              ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 0 / 7,024,640 ( 0 % )                          ;
-; Total DSP Blocks                ; 0 / 156 ( 0 % )                                ;
-; Total HSSI RX PCSs              ; 0 / 6 ( 0 % )                                  ;
-; Total HSSI PMA RX Deserializers ; 0 / 6 ( 0 % )                                  ;
-; Total HSSI TX PCSs              ; 0 / 6 ( 0 % )                                  ;
-; Total HSSI PMA TX Serializers   ; 0 / 6 ( 0 % )                                  ;
-; Total PLLs                      ; 0 / 13 ( 0 % )                                 ;
+; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                          ;
+; Total DSP Blocks                ; 0 / 87 ( 0 % )                                 ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0 / 6 ( 0 % )                                  ;
 ; Total DLLs                      ; 0 / 4 ( 0 % )                                  ;
 +---------------------------------+------------------------------------------------+
 
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/09/2024 13:19:59 ;
+; Start date & time ; 09/09/2024 20:44:17 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; tbird               ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 121380443547.172590959907308           ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 123719793987059.172593625725676        ; --            ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; tbird_tb                          ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
@@ -109,26 +109,26 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 13196 MB            ; 00:00:48                           ;
-; Fitter               ; 00:01:06     ; 1.0                     ; 15535 MB            ; 00:03:22                           ;
-; Assembler            ; 00:00:12     ; 1.0                     ; 13747 MB            ; 00:00:12                           ;
-; Timing Analyzer      ; 00:00:06     ; 1.0                     ; 13768 MB            ; 00:00:06                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 13133 MB            ; 00:00:01                           ;
-; Total                ; 00:01:45     ; --                      ; --                  ; 00:04:29                           ;
+; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 469 MB              ; 00:00:14                           ;
+; Fitter               ; 00:00:30     ; 1.0                     ; 1792 MB             ; 00:00:49                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 535 MB              ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.1                     ; 842 MB              ; 00:00:04                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 684 MB              ; 00:00:01                           ;
+; Total                ; 00:00:47     ; --                      ; --                  ; 00:01:13                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                    ;
-+----------------------+------------------+------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; TIMOTHYTHOM5C1A  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; TIMOTHYTHOM5C1A  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; TIMOTHYTHOM5C1A  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; TIMOTHYTHOM5C1A  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; TIMOTHYTHOM5C1A  ; Windows 10 ; 10.0       ; x86_64         ;
-+----------------------+------------------+------------+------------+----------------+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++----------------------+------------------+----------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
++----------------------+------------------+----------------+------------+----------------+
+; Analysis & Synthesis ; dsl10            ; Ubuntu 18.04.6 ; 18         ; x86_64         ;
+; Fitter               ; dsl10            ; Ubuntu 18.04.6 ; 18         ; x86_64         ;
+; Assembler            ; dsl10            ; Ubuntu 18.04.6 ; 18         ; x86_64         ;
+; Timing Analyzer      ; dsl10            ; Ubuntu 18.04.6 ; 18         ; x86_64         ;
+; EDA Netlist Writer   ; dsl10            ; Ubuntu 18.04.6 ; 18         ; x86_64         ;
++----------------------+------------------+----------------+------------+----------------+
 
 
 ------------

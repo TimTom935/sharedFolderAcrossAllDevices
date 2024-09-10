@@ -2,7 +2,192 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "right_led1",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex20",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex21",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex22",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex23",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex24",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex25",
+					"strict" : false
+				},
+				{
+					"name" : "right_led2",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex10",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex11",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex12",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex13",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex14",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex15",
+					"strict" : false
+				},
+				{
+					"name" : "right_led3",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex00",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex01",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex02",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex03",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex04",
+					"strict" : false
+				},
+				{
+					"name" : "right_hex05",
+					"strict" : false
+				},
+				{
+					"name" : "left_led1",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex30",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex31",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex32",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex33",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex34",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex35",
+					"strict" : false
+				},
+				{
+					"name" : "left_led2",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex40",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex41",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex42",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex43",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex44",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex45",
+					"strict" : false
+				},
+				{
+					"name" : "left_led3",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex50",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex51",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex52",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex53",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex54",
+					"strict" : false
+				},
+				{
+					"name" : "left_hex55",
+					"strict" : false
+				},
+				{
+					"name" : "hazard_button",
+					"strict" : false
+				},
+				{
+					"name" : "left_button",
+					"strict" : false
+				},
+				{
+					"name" : "right_button",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				}
+			]
 		}
 	]
 }

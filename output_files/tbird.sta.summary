@@ -2,4 +2,100 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1100mV 85C Model Setup 'clock'
+Slack : -5.247
+TNS   : -88.494
+
+Type  : Slow 1100mV 85C Model Setup 'enable'
+Slack : -2.246
+TNS   : -44.249
+
+Type  : Slow 1100mV 85C Model Hold 'clock'
+Slack : 0.385
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'enable'
+Slack : 0.707
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'enable'
+Slack : -0.394
+TNS   : -20.505
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock'
+Slack : -0.394
+TNS   : -19.458
+
+Type  : Slow 1100mV 0C Model Setup 'clock'
+Slack : -5.334
+TNS   : -86.414
+
+Type  : Slow 1100mV 0C Model Setup 'enable'
+Slack : -2.182
+TNS   : -42.227
+
+Type  : Slow 1100mV 0C Model Hold 'clock'
+Slack : 0.381
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'enable'
+Slack : 0.685
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock'
+Slack : -0.397
+TNS   : -21.182
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'enable'
+Slack : -0.394
+TNS   : -20.308
+
+Type  : Fast 1100mV 85C Model Setup 'clock'
+Slack : -3.376
+TNS   : -37.541
+
+Type  : Fast 1100mV 85C Model Setup 'enable'
+Slack : -1.042
+TNS   : -18.924
+
+Type  : Fast 1100mV 85C Model Hold 'clock'
+Slack : 0.206
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'enable'
+Slack : 0.350
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clock'
+Slack : -0.416
+TNS   : -3.456
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'enable'
+Slack : 0.073
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clock'
+Slack : -2.816
+TNS   : -31.813
+
+Type  : Fast 1100mV 0C Model Setup 'enable'
+Slack : -0.903
+TNS   : -15.250
+
+Type  : Fast 1100mV 0C Model Hold 'clock'
+Slack : 0.194
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'enable'
+Slack : 0.318
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock'
+Slack : -0.422
+TNS   : -3.506
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'enable'
+Slack : 0.094
+TNS   : 0.000
+
 ------------------------------------------------------------
