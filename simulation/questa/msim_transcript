@@ -26,29 +26,29 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/tim/Documents/sharedFolderAcrossAllDevices {C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 12:32:53 on Sep 09,2024
+# Start time: 14:37:39 on Sep 09,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/tim/Documents/sharedFolderAcrossAllDevices" C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tbird_fsm.v 
 # -- Compiling module tbird
 # 
 # Top level modules:
 # 	tbird
-# End time: 12:32:53 on Sep 09,2024, Elapsed time: 0:00:00
+# End time: 14:37:39 on Sep 09,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/tim/Documents/sharedFolderAcrossAllDevices {C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tb_tbird.v}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 12:32:53 on Sep 09,2024
+# Start time: 14:37:40 on Sep 09,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/tim/Documents/sharedFolderAcrossAllDevices" C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tb_tbird.v 
 # -- Compiling module tbird_tb
 # 
 # Top level modules:
 # 	tbird_tb
-# End time: 12:32:54 on Sep 09,2024, Elapsed time: 0:00:01
+# End time: 14:37:40 on Sep 09,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tbird_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" tbird_tb 
-# Start time: 12:32:54 on Sep 09,2024
+# Start time: 14:37:40 on Sep 09,2024
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
 # ** Note: (vopt-143) Recognized 1 FSM in module "tbird(fast)".
@@ -66,7 +66,3 @@
 # Testing left turn signal
 # Testing hazard signal
 # Testbench complete
-# Break key hit
-# Break in Module tbird_tb at C:/Users/tim/Documents/sharedFolderAcrossAllDevices/tb_tbird.v line 36
-# End time: 13:32:07 on Sep 09,2024, Elapsed time: 0:59:13
-# Errors: 0, Warnings: 1

@@ -1,4 +1,4 @@
-`timescale 1ns/1ps
+`timescale 1ps/1ps
 
 module tbird_tb;
 
@@ -47,23 +47,23 @@ initial begin
     // Test right turn signal
     $display("Testing right turn signal");
     right_button = 0;  // Press right turn button
-    #200000;  // Wait for the sequence to complete
+    #100000;  // Wait for the sequence to complete
     right_button = 1;  // Release right turn button
-    #200000;
+    #100000;
 
     // Test left turn signal
     $display("Testing left turn signal");
     left_button = 0;  // Press left turn button
-    #200000;  // Wait for the sequence to complete
+    #100000;  // Wait for the sequence to complete
     left_button = 1;  // Release left turn button
-    #200000;
+    #100000;
 
     // Test hazard signal
     $display("Testing hazard signal");
     hazard_button = 0;  // Press hazard button
-    #200000;  // Let the hazard blink for some time
+    #100000;  // Let the hazard blink for some time
     hazard_button = 1;  // Release hazard button
-    #200000;
+    #100000;
 
     // End simulation
     $display("Testbench complete");
