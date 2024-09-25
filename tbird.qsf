@@ -38,7 +38,7 @@
 
 
 set_global_assignment -name FAMILY "Cyclone V"
-set_global_assignment -name DEVICE 5CGXFC7C7F23C8
+set_global_assignment -name DEVICE 5CSEMA5F31C6
 set_global_assignment -name TOP_LEVEL_ENTITY tbird
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:49:06  SEPTEMBER 09, 2024"
@@ -59,18 +59,59 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VERILOG_FILE tb_tbird.v
 set_location_assignment PIN_Y21 -to left_led3
 set_location_assignment PIN_W21 -to left_led2
-set_location_assignment PIN_V18 -to right_led1
+set_location_assignment PIN_V17 -to right_led1
 set_location_assignment PIN_V16 -to right_led3
 set_location_assignment PIN_W16 -to right_led2
-set_location_assignment PIN_W22 -to left_led1
+set_location_assignment PIN_W20 -to left_led1
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH tbird_tb -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_NAME tbird_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tbird_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tbird_tb -section_id tbird_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE tb_tbird.v -section_id tbird_tb
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH tb_tbird -section_id eda_simulation
+set_location_assignment PIN_AA14 -to right_button
+set_location_assignment PIN_AA15 -to hazard_button
+set_location_assignment PIN_W15 -to left_button
+set_location_assignment PIN_AF14 -to clock
+set_location_assignment PIN_AD26 -to left_hex30
+set_location_assignment PIN_AC27 -to left_hex31
+set_location_assignment PIN_AD25 -to left_hex32
+set_location_assignment PIN_AC25 -to left_hex33
+set_location_assignment PIN_AB28 -to left_hex34
+set_location_assignment PIN_AB25 -to left_hex35
+set_location_assignment PIN_AA24 -to left_hex40
+set_location_assignment PIN_Y23 -to left_hex41
+set_location_assignment PIN_Y24 -to left_hex42
+set_location_assignment PIN_W22 -to left_hex43
+set_location_assignment PIN_W24 -to left_hex44
+set_location_assignment PIN_V23 -to left_hex45
+set_location_assignment PIN_V25 -to left_hex50
+set_location_assignment PIN_AA28 -to left_hex51
+set_location_assignment PIN_Y27 -to left_hex52
+set_location_assignment PIN_AB27 -to left_hex53
+set_location_assignment PIN_AB26 -to left_hex54
+set_location_assignment PIN_AA26 -to left_hex55
+set_location_assignment PIN_AE26 -to right_hex00
+set_location_assignment PIN_AE27 -to right_hex01
+set_location_assignment PIN_AE28 -to right_hex02
+set_location_assignment PIN_AG27 -to right_hex03
+set_location_assignment PIN_AF28 -to right_hex04
+set_location_assignment PIN_AG28 -to right_hex05
+set_location_assignment PIN_AJ29 -to right_hex10
+set_location_assignment PIN_AH29 -to right_hex11
+set_location_assignment PIN_AH30 -to right_hex12
+set_location_assignment PIN_AG30 -to right_hex13
+set_location_assignment PIN_AF29 -to right_hex14
+set_location_assignment PIN_AF30 -to right_hex15
+set_location_assignment PIN_AB23 -to right_hex20
+set_location_assignment PIN_AE29 -to right_hex21
+set_location_assignment PIN_AD29 -to right_hex22
+set_location_assignment PIN_AC28 -to right_hex23
+set_location_assignment PIN_AC29 -to right_hex25
+set_location_assignment PIN_AD30 -to right_hex24
+set_global_assignment -name EDA_TEST_BENCH_NAME tb_tbird -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tb_tbird
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb_tbird -section_id tb_tbird
+set_global_assignment -name EDA_TEST_BENCH_FILE tb_tbird.v -section_id tb_tbird
+set_location_assignment PIN_Y16 -to reset
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 Analysis & Synthesis Status : Successful - Mon Sep  9 14:31:06 2024
+=======
+Analysis & Synthesis Status : Successful - Mon Sep  9 20:44:24 2024
+>>>>>>> 5a3c3d42ef18790b6c26818b4d6580c253d80592
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : tbird
 Top-level Entity Name : tbird
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 0
-Total pins : 11
+Total registers : 65
+Total pins : 47
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0
