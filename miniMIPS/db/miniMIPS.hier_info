@@ -1,4 +1,25 @@
-|miniMIPS
+|mips
+clk => clk.IN1
+reset => reset.IN2
+switches[0] => switches[0].IN1
+switches[1] => switches[1].IN1
+switches[2] => switches[2].IN1
+switches[3] => switches[3].IN1
+switches[4] => switches[4].IN1
+switches[5] => switches[5].IN1
+switches[6] => switches[6].IN1
+switches[7] => switches[7].IN1
+leds[0] << flopenr:flop.port4
+leds[1] << flopenr:flop.port4
+leds[2] << flopenr:flop.port4
+leds[3] << flopenr:flop.port4
+leds[4] << flopenr:flop.port4
+leds[5] << flopenr:flop.port4
+leds[6] << flopenr:flop.port4
+leds[7] << flopenr:flop.port4
+
+
+|mips|miniMIPS:cpu
 clk => clk.IN2
 reset => reset.IN2
 memdata[0] => memdata[0].IN1
@@ -28,7 +49,7 @@ writedata[6] <= datapath:dp.port16
 writedata[7] <= datapath:dp.port16
 
 
-|miniMIPS|controller:cont
+|mips|miniMIPS:cpu|controller:cont
 clk => state~1.DATAIN
 reset => state.OUTPUTSELECT
 reset => state.OUTPUTSELECT
@@ -83,7 +104,7 @@ irwrite[2] <= irwrite[2].DB_MAX_OUTPUT_PORT_TYPE
 irwrite[3] <= irwrite[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|miniMIPS|alucontrol:ac
+|mips|miniMIPS:cpu|alucontrol:ac
 aluop[0] => Equal0.IN3
 aluop[0] => Equal1.IN3
 aluop[1] => Equal0.IN2
@@ -99,7 +120,7 @@ alucont[1] <= alucont.DB_MAX_OUTPUT_PORT_TYPE
 alucont[2] <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|miniMIPS|datapath:dp
+|mips|miniMIPS:cpu|datapath:dp
 clk => clk.IN10
 reset => reset.IN9
 memdata[0] => memdata[0].IN5
@@ -142,21 +163,21 @@ instr[10] <= flopenr:ir1.port4
 instr[11] <= instr[11].DB_MAX_OUTPUT_PORT_TYPE
 instr[12] <= instr[12].DB_MAX_OUTPUT_PORT_TYPE
 instr[13] <= instr[13].DB_MAX_OUTPUT_PORT_TYPE
-instr[14] <= flopenr:ir1.port4
-instr[15] <= flopenr:ir1.port4
+instr[14] <= instr[14].DB_MAX_OUTPUT_PORT_TYPE
+instr[15] <= instr[15].DB_MAX_OUTPUT_PORT_TYPE
 instr[16] <= instr[16].DB_MAX_OUTPUT_PORT_TYPE
 instr[17] <= instr[17].DB_MAX_OUTPUT_PORT_TYPE
 instr[18] <= instr[18].DB_MAX_OUTPUT_PORT_TYPE
-instr[19] <= flopenr:ir2.port4
-instr[20] <= flopenr:ir2.port4
-instr[21] <= ra1[0].DB_MAX_OUTPUT_PORT_TYPE
-instr[22] <= ra1[1].DB_MAX_OUTPUT_PORT_TYPE
-instr[23] <= ra1[2].DB_MAX_OUTPUT_PORT_TYPE
-instr[24] <= flopenr:ir3.port4
-instr[25] <= flopenr:ir3.port4
-instr[26] <= flopenr:ir3.port4
-instr[27] <= flopenr:ir3.port4
-instr[28] <= flopenr:ir3.port4
+instr[19] <= instr[19].DB_MAX_OUTPUT_PORT_TYPE
+instr[20] <= instr[20].DB_MAX_OUTPUT_PORT_TYPE
+instr[21] <= instr[21].DB_MAX_OUTPUT_PORT_TYPE
+instr[22] <= instr[22].DB_MAX_OUTPUT_PORT_TYPE
+instr[23] <= instr[23].DB_MAX_OUTPUT_PORT_TYPE
+instr[24] <= ra1[3].DB_MAX_OUTPUT_PORT_TYPE
+instr[25] <= ra1[4].DB_MAX_OUTPUT_PORT_TYPE
+instr[26] <= ra1[5].DB_MAX_OUTPUT_PORT_TYPE
+instr[27] <= ra1[6].DB_MAX_OUTPUT_PORT_TYPE
+instr[28] <= ra1[7].DB_MAX_OUTPUT_PORT_TYPE
 instr[29] <= flopenr:ir3.port4
 instr[30] <= flopenr:ir3.port4
 instr[31] <= flopenr:ir3.port4
@@ -178,377 +199,7 @@ writedata[6] <= writedata[6].DB_MAX_OUTPUT_PORT_TYPE
 writedata[7] <= writedata[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|miniMIPS|datapath:dp|mux2:regmux
-d0[0] => y.DATAA
-d0[1] => y.DATAA
-d0[2] => y.DATAA
-d1[0] => y.DATAB
-d1[1] => y.DATAB
-d1[2] => y.DATAB
-s => y.OUTPUTSELECT
-s => y.OUTPUTSELECT
-s => y.OUTPUTSELECT
-y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|miniMIPS|datapath:dp|flopenr:ir0
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-clk => q[4]~reg0.CLK
-clk => q[5]~reg0.CLK
-clk => q[6]~reg0.CLK
-clk => q[7]~reg0.CLK
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-d[0] => q.DATAB
-d[1] => q.DATAB
-d[2] => q.DATAB
-d[3] => q.DATAB
-d[4] => q.DATAB
-d[5] => q.DATAB
-d[6] => q.DATAB
-d[7] => q.DATAB
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|miniMIPS|datapath:dp|flopenr:ir1
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-clk => q[4]~reg0.CLK
-clk => q[5]~reg0.CLK
-clk => q[6]~reg0.CLK
-clk => q[7]~reg0.CLK
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-d[0] => q.DATAB
-d[1] => q.DATAB
-d[2] => q.DATAB
-d[3] => q.DATAB
-d[4] => q.DATAB
-d[5] => q.DATAB
-d[6] => q.DATAB
-d[7] => q.DATAB
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|miniMIPS|datapath:dp|flopenr:ir2
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-clk => q[4]~reg0.CLK
-clk => q[5]~reg0.CLK
-clk => q[6]~reg0.CLK
-clk => q[7]~reg0.CLK
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-d[0] => q.DATAB
-d[1] => q.DATAB
-d[2] => q.DATAB
-d[3] => q.DATAB
-d[4] => q.DATAB
-d[5] => q.DATAB
-d[6] => q.DATAB
-d[7] => q.DATAB
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|miniMIPS|datapath:dp|flopenr:ir3
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-clk => q[4]~reg0.CLK
-clk => q[5]~reg0.CLK
-clk => q[6]~reg0.CLK
-clk => q[7]~reg0.CLK
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-d[0] => q.DATAB
-d[1] => q.DATAB
-d[2] => q.DATAB
-d[3] => q.DATAB
-d[4] => q.DATAB
-d[5] => q.DATAB
-d[6] => q.DATAB
-d[7] => q.DATAB
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|miniMIPS|datapath:dp|flopenr:pcreg
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-clk => q[4]~reg0.CLK
-clk => q[5]~reg0.CLK
-clk => q[6]~reg0.CLK
-clk => q[7]~reg0.CLK
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-en => q.OUTPUTSELECT
-d[0] => q.DATAB
-d[1] => q.DATAB
-d[2] => q.DATAB
-d[3] => q.DATAB
-d[4] => q.DATAB
-d[5] => q.DATAB
-d[6] => q.DATAB
-d[7] => q.DATAB
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|miniMIPS|datapath:dp|flopr:mdr
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-clk => q[4]~reg0.CLK
-clk => q[5]~reg0.CLK
-clk => q[6]~reg0.CLK
-clk => q[7]~reg0.CLK
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-d[0] => q.DATAA
-d[1] => q.DATAA
-d[2] => q.DATAA
-d[3] => q.DATAA
-d[4] => q.DATAA
-d[5] => q.DATAA
-d[6] => q.DATAA
-d[7] => q.DATAA
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|miniMIPS|datapath:dp|flopr:areg
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-clk => q[4]~reg0.CLK
-clk => q[5]~reg0.CLK
-clk => q[6]~reg0.CLK
-clk => q[7]~reg0.CLK
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-d[0] => q.DATAA
-d[1] => q.DATAA
-d[2] => q.DATAA
-d[3] => q.DATAA
-d[4] => q.DATAA
-d[5] => q.DATAA
-d[6] => q.DATAA
-d[7] => q.DATAA
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|miniMIPS|datapath:dp|flopr:wrd
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-clk => q[4]~reg0.CLK
-clk => q[5]~reg0.CLK
-clk => q[6]~reg0.CLK
-clk => q[7]~reg0.CLK
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-d[0] => q.DATAA
-d[1] => q.DATAA
-d[2] => q.DATAA
-d[3] => q.DATAA
-d[4] => q.DATAA
-d[5] => q.DATAA
-d[6] => q.DATAA
-d[7] => q.DATAA
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|miniMIPS|datapath:dp|flopr:res
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-clk => q[4]~reg0.CLK
-clk => q[5]~reg0.CLK
-clk => q[6]~reg0.CLK
-clk => q[7]~reg0.CLK
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-reset => q.OUTPUTSELECT
-d[0] => q.DATAA
-d[1] => q.DATAA
-d[2] => q.DATAA
-d[3] => q.DATAA
-d[4] => q.DATAA
-d[5] => q.DATAA
-d[6] => q.DATAA
-d[7] => q.DATAA
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|miniMIPS|datapath:dp|mux2:adrmux
+|mips|miniMIPS:cpu|datapath:dp|mux2:regmux
 d0[0] => y.DATAA
 d0[1] => y.DATAA
 d0[2] => y.DATAA
@@ -583,7 +234,362 @@ y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
 y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|miniMIPS|datapath:dp|mux2:src1mux
+|mips|miniMIPS:cpu|datapath:dp|flopenr:ir0
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+clk => q[4]~reg0.CLK
+clk => q[5]~reg0.CLK
+clk => q[6]~reg0.CLK
+clk => q[7]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+d[0] => q.DATAB
+d[1] => q.DATAB
+d[2] => q.DATAB
+d[3] => q.DATAB
+d[4] => q.DATAB
+d[5] => q.DATAB
+d[6] => q.DATAB
+d[7] => q.DATAB
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|miniMIPS:cpu|datapath:dp|flopenr:ir1
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+clk => q[4]~reg0.CLK
+clk => q[5]~reg0.CLK
+clk => q[6]~reg0.CLK
+clk => q[7]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+d[0] => q.DATAB
+d[1] => q.DATAB
+d[2] => q.DATAB
+d[3] => q.DATAB
+d[4] => q.DATAB
+d[5] => q.DATAB
+d[6] => q.DATAB
+d[7] => q.DATAB
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|miniMIPS:cpu|datapath:dp|flopenr:ir2
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+clk => q[4]~reg0.CLK
+clk => q[5]~reg0.CLK
+clk => q[6]~reg0.CLK
+clk => q[7]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+d[0] => q.DATAB
+d[1] => q.DATAB
+d[2] => q.DATAB
+d[3] => q.DATAB
+d[4] => q.DATAB
+d[5] => q.DATAB
+d[6] => q.DATAB
+d[7] => q.DATAB
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|miniMIPS:cpu|datapath:dp|flopenr:ir3
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+clk => q[4]~reg0.CLK
+clk => q[5]~reg0.CLK
+clk => q[6]~reg0.CLK
+clk => q[7]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+d[0] => q.DATAB
+d[1] => q.DATAB
+d[2] => q.DATAB
+d[3] => q.DATAB
+d[4] => q.DATAB
+d[5] => q.DATAB
+d[6] => q.DATAB
+d[7] => q.DATAB
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|miniMIPS:cpu|datapath:dp|flopenr:pcreg
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+clk => q[4]~reg0.CLK
+clk => q[5]~reg0.CLK
+clk => q[6]~reg0.CLK
+clk => q[7]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+d[0] => q.DATAB
+d[1] => q.DATAB
+d[2] => q.DATAB
+d[3] => q.DATAB
+d[4] => q.DATAB
+d[5] => q.DATAB
+d[6] => q.DATAB
+d[7] => q.DATAB
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|miniMIPS:cpu|datapath:dp|flopr:mdr
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+clk => q[4]~reg0.CLK
+clk => q[5]~reg0.CLK
+clk => q[6]~reg0.CLK
+clk => q[7]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+d[0] => q.DATAA
+d[1] => q.DATAA
+d[2] => q.DATAA
+d[3] => q.DATAA
+d[4] => q.DATAA
+d[5] => q.DATAA
+d[6] => q.DATAA
+d[7] => q.DATAA
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|miniMIPS:cpu|datapath:dp|flopr:areg
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+clk => q[4]~reg0.CLK
+clk => q[5]~reg0.CLK
+clk => q[6]~reg0.CLK
+clk => q[7]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+d[0] => q.DATAA
+d[1] => q.DATAA
+d[2] => q.DATAA
+d[3] => q.DATAA
+d[4] => q.DATAA
+d[5] => q.DATAA
+d[6] => q.DATAA
+d[7] => q.DATAA
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|miniMIPS:cpu|datapath:dp|flopr:wrd
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+clk => q[4]~reg0.CLK
+clk => q[5]~reg0.CLK
+clk => q[6]~reg0.CLK
+clk => q[7]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+d[0] => q.DATAA
+d[1] => q.DATAA
+d[2] => q.DATAA
+d[3] => q.DATAA
+d[4] => q.DATAA
+d[5] => q.DATAA
+d[6] => q.DATAA
+d[7] => q.DATAA
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|miniMIPS:cpu|datapath:dp|flopr:res
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+clk => q[4]~reg0.CLK
+clk => q[5]~reg0.CLK
+clk => q[6]~reg0.CLK
+clk => q[7]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+d[0] => q.DATAA
+d[1] => q.DATAA
+d[2] => q.DATAA
+d[3] => q.DATAA
+d[4] => q.DATAA
+d[5] => q.DATAA
+d[6] => q.DATAA
+d[7] => q.DATAA
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|miniMIPS:cpu|datapath:dp|mux2:adrmux
 d0[0] => y.DATAA
 d0[1] => y.DATAA
 d0[2] => y.DATAA
@@ -618,7 +624,42 @@ y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
 y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|miniMIPS|datapath:dp|mux4:src2mux
+|mips|miniMIPS:cpu|datapath:dp|mux2:src1mux
+d0[0] => y.DATAA
+d0[1] => y.DATAA
+d0[2] => y.DATAA
+d0[3] => y.DATAA
+d0[4] => y.DATAA
+d0[5] => y.DATAA
+d0[6] => y.DATAA
+d0[7] => y.DATAA
+d1[0] => y.DATAB
+d1[1] => y.DATAB
+d1[2] => y.DATAB
+d1[3] => y.DATAB
+d1[4] => y.DATAB
+d1[5] => y.DATAB
+d1[6] => y.DATAB
+d1[7] => y.DATAB
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|miniMIPS:cpu|datapath:dp|mux4:src2mux
 d0[0] => Mux7.IN0
 d0[1] => Mux6.IN0
 d0[2] => Mux5.IN0
@@ -677,7 +718,7 @@ y[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 y[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|miniMIPS|datapath:dp|mux4:pcmux
+|mips|miniMIPS:cpu|datapath:dp|mux4:pcmux
 d0[0] => Mux7.IN0
 d0[1] => Mux6.IN0
 d0[2] => Mux5.IN0
@@ -736,7 +777,7 @@ y[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 y[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|miniMIPS|datapath:dp|mux2:wdmux
+|mips|miniMIPS:cpu|datapath:dp|mux2:wdmux
 d0[0] => y.DATAA
 d0[1] => y.DATAA
 d0[2] => y.DATAA
@@ -771,8 +812,13 @@ y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
 y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|miniMIPS|datapath:dp|regfile:rf
+|mips|miniMIPS:cpu|datapath:dp|regfile:rf
 clk => RAM.we_a.CLK
+clk => RAM.waddr_a[7].CLK
+clk => RAM.waddr_a[6].CLK
+clk => RAM.waddr_a[5].CLK
+clk => RAM.waddr_a[4].CLK
+clk => RAM.waddr_a[3].CLK
 clk => RAM.waddr_a[2].CLK
 clk => RAM.waddr_a[1].CLK
 clk => RAM.waddr_a[0].CLK
@@ -793,18 +839,48 @@ ra1[1] => WideOr0.IN1
 ra1[1] => RAM.RADDR1
 ra1[2] => WideOr0.IN2
 ra1[2] => RAM.RADDR2
+ra1[3] => WideOr0.IN3
+ra1[3] => RAM.RADDR3
+ra1[4] => WideOr0.IN4
+ra1[4] => RAM.RADDR4
+ra1[5] => WideOr0.IN5
+ra1[5] => RAM.RADDR5
+ra1[6] => WideOr0.IN6
+ra1[6] => RAM.RADDR6
+ra1[7] => WideOr0.IN7
+ra1[7] => RAM.RADDR7
 ra2[0] => WideOr1.IN0
 ra2[0] => RAM.PORTBRADDR
 ra2[1] => WideOr1.IN1
 ra2[1] => RAM.PORTBRADDR1
 ra2[2] => WideOr1.IN2
 ra2[2] => RAM.PORTBRADDR2
+ra2[3] => WideOr1.IN3
+ra2[3] => RAM.PORTBRADDR3
+ra2[4] => WideOr1.IN4
+ra2[4] => RAM.PORTBRADDR4
+ra2[5] => WideOr1.IN5
+ra2[5] => RAM.PORTBRADDR5
+ra2[6] => WideOr1.IN6
+ra2[6] => RAM.PORTBRADDR6
+ra2[7] => WideOr1.IN7
+ra2[7] => RAM.PORTBRADDR7
 wa[0] => RAM.waddr_a[0].DATAIN
 wa[0] => RAM.WADDR
 wa[1] => RAM.waddr_a[1].DATAIN
 wa[1] => RAM.WADDR1
 wa[2] => RAM.waddr_a[2].DATAIN
 wa[2] => RAM.WADDR2
+wa[3] => RAM.waddr_a[3].DATAIN
+wa[3] => RAM.WADDR3
+wa[4] => RAM.waddr_a[4].DATAIN
+wa[4] => RAM.WADDR4
+wa[5] => RAM.waddr_a[5].DATAIN
+wa[5] => RAM.WADDR5
+wa[6] => RAM.waddr_a[6].DATAIN
+wa[6] => RAM.WADDR6
+wa[7] => RAM.waddr_a[7].DATAIN
+wa[7] => RAM.WADDR7
 wd[0] => RAM.data_a[0].DATAIN
 wd[0] => RAM.DATAIN
 wd[1] => RAM.data_a[1].DATAIN
@@ -839,7 +915,7 @@ rd2[6] <= rd2.DB_MAX_OUTPUT_PORT_TYPE
 rd2[7] <= rd2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|miniMIPS|datapath:dp|alu:alunit
+|mips|miniMIPS:cpu|datapath:dp|alu:alunit
 a[0] => result.IN0
 a[0] => result.IN0
 a[0] => _.DATAD
@@ -931,7 +1007,7 @@ result[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 result[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|miniMIPS|datapath:dp|zerodetect:zd
+|mips|miniMIPS:cpu|datapath:dp|zerodetect:zd
 a[0] => Equal0.IN31
 a[1] => Equal0.IN30
 a[2] => Equal0.IN29
@@ -941,5 +1017,162 @@ a[5] => Equal0.IN26
 a[6] => Equal0.IN25
 a[7] => Equal0.IN24
 y <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|exmem:mem
+data[0] => ram.data_a[0].DATAIN
+data[0] => ram.DATAIN
+data[1] => ram.data_a[1].DATAIN
+data[1] => ram.DATAIN1
+data[2] => ram.data_a[2].DATAIN
+data[2] => ram.DATAIN2
+data[3] => ram.data_a[3].DATAIN
+data[3] => ram.DATAIN3
+data[4] => ram.data_a[4].DATAIN
+data[4] => ram.DATAIN4
+data[5] => ram.data_a[5].DATAIN
+data[5] => ram.DATAIN5
+data[6] => ram.data_a[6].DATAIN
+data[6] => ram.DATAIN6
+data[7] => ram.data_a[7].DATAIN
+data[7] => ram.DATAIN7
+addr[0] => ram.waddr_a[0].DATAIN
+addr[0] => addr_reg[0].DATAIN
+addr[0] => ram.WADDR
+addr[1] => ram.waddr_a[1].DATAIN
+addr[1] => addr_reg[1].DATAIN
+addr[1] => ram.WADDR1
+addr[2] => ram.waddr_a[2].DATAIN
+addr[2] => addr_reg[2].DATAIN
+addr[2] => ram.WADDR2
+addr[3] => ram.waddr_a[3].DATAIN
+addr[3] => addr_reg[3].DATAIN
+addr[3] => ram.WADDR3
+addr[4] => ram.waddr_a[4].DATAIN
+addr[4] => addr_reg[4].DATAIN
+addr[4] => ram.WADDR4
+addr[5] => ram.waddr_a[5].DATAIN
+addr[5] => addr_reg[5].DATAIN
+addr[5] => ram.WADDR5
+addr[6] => ram.waddr_a[6].DATAIN
+addr[6] => addr_reg[6].DATAIN
+addr[6] => ram.WADDR6
+addr[7] => ram.waddr_a[7].DATAIN
+addr[7] => addr_reg[7].DATAIN
+addr[7] => ram.WADDR7
+we => ram.we_a.DATAIN
+we => ram.WE
+clk => ram.we_a.CLK
+clk => ram.waddr_a[7].CLK
+clk => ram.waddr_a[6].CLK
+clk => ram.waddr_a[5].CLK
+clk => ram.waddr_a[4].CLK
+clk => ram.waddr_a[3].CLK
+clk => ram.waddr_a[2].CLK
+clk => ram.waddr_a[1].CLK
+clk => ram.waddr_a[0].CLK
+clk => ram.data_a[7].CLK
+clk => ram.data_a[6].CLK
+clk => ram.data_a[5].CLK
+clk => ram.data_a[4].CLK
+clk => ram.data_a[3].CLK
+clk => ram.data_a[2].CLK
+clk => ram.data_a[1].CLK
+clk => ram.data_a[0].CLK
+clk => addr_reg[0].CLK
+clk => addr_reg[1].CLK
+clk => addr_reg[2].CLK
+clk => addr_reg[3].CLK
+clk => addr_reg[4].CLK
+clk => addr_reg[5].CLK
+clk => addr_reg[6].CLK
+clk => addr_reg[7].CLK
+clk => ram.CLK0
+q[0] <= ram.DATAOUT
+q[1] <= ram.DATAOUT1
+q[2] <= ram.DATAOUT2
+q[3] <= ram.DATAOUT3
+q[4] <= ram.DATAOUT4
+q[5] <= ram.DATAOUT5
+q[6] <= ram.DATAOUT6
+q[7] <= ram.DATAOUT7
+
+
+|mips|mux2:regmux
+d0[0] => y.DATAA
+d0[1] => y.DATAA
+d0[2] => y.DATAA
+d0[3] => y.DATAA
+d0[4] => y.DATAA
+d0[5] => y.DATAA
+d0[6] => y.DATAA
+d0[7] => y.DATAA
+d1[0] => y.DATAB
+d1[1] => y.DATAB
+d1[2] => y.DATAB
+d1[3] => y.DATAB
+d1[4] => y.DATAB
+d1[5] => y.DATAB
+d1[6] => y.DATAB
+d1[7] => y.DATAB
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mips|flopenr:flop
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+clk => q[4]~reg0.CLK
+clk => q[5]~reg0.CLK
+clk => q[6]~reg0.CLK
+clk => q[7]~reg0.CLK
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+reset => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+en => q.OUTPUTSELECT
+d[0] => q.DATAB
+d[1] => q.DATAB
+d[2] => q.DATAB
+d[3] => q.DATAB
+d[4] => q.DATAB
+d[5] => q.DATAB
+d[6] => q.DATAB
+d[7] => q.DATAB
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

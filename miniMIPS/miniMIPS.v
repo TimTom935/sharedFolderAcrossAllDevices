@@ -330,7 +330,7 @@ module regfile #(parameter WIDTH = 8, REGBITS = 3)
 	initial begin
 	$display("Loading register file");
 	// you'll need to change the path to this file! 
-	$readmemb("C:/Users/tim/Documents/sharedFolderAcrossAllDevices/miniMIPS/reg.dat", RAM);
+	$readmemb("C:/Users/Timto/sharedFolderAcrossAllDevices/reg.dat", RAM);
 	$display("done with RF load"); 
 	end
 
